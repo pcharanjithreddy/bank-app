@@ -28,17 +28,18 @@ otp_storage = {}
 # ---------------- EMAIL ----------------
 def send_email(to, subject, body):
     try:
-        msg = Message(subject, sender=app.config['MAIL_USERNAME'], recipients=[to])
+        if os.environ.get("RENDER") == "true":
+            print(f"📧 EMAIL (SIMULATED): {body}")
+            return
+
+        msg = Message(subject,
+                      sender=app.config['MAIL_USERNAME'],
+                      recipients=[to])
         msg.body = body
         mail.send(msg)
-        print("Email sent successfully")
-    except Exception as e:
-        print("Email error:", e)
 
-# ---------------- HOME ----------------
-@app.route('/')
-def home():
-    return redirect('/login')
+    except Exception as e:
+        print("MAIL ERROR:", e)
 
 # ---------------- REGISTER ----------------
 @app.route('/register', methods=['GET','POST'])
