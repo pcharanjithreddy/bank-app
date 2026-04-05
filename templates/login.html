@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="container">
+<div class="card">
+
+<h2>🔐 CyberShield Bank</h2>
+
+<form method="POST">
+<input name="username" placeholder="Email or Username" required>
+<input name="password" type="password" placeholder="Password" required>
+
+<p>Solve: {{captcha}}</p>
+<input name="captcha" placeholder="Answer" required>
+
+<button>Login</button>
+</form>
+
+<br>
+<a href="/register">Create Account</a>
+
+</div>
+</div>
+
+</body>
+</html>

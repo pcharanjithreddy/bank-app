@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI';
+            background: linear-gradient(270deg, #0f2027, #2c5364, #00c6ff);
+            background-size: 600% 600%;
+            animation: gradient 10s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradient {
+            0% {background-position: 0%}
+            50% {background-position: 100%}
+            100% {background-position: 0%}
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 350px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #00c6ff;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #0072ff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+    <h2>🏦 CyberShield Bank</h2>
+
+    <h3>Welcome {{user.username}}</h3>
+
+    {% if temp %}
+        <p class="warning">⚠ TEMPORARY MODE (48 hours)</p>
+        <p>You can view data but main access is restricted</p>
+    {% endif %}
+
+    <hr>
+
+    <p><b>Account Status:</b> Active</p>
+    <p><b>Last Login:</b> Just now</p>
+
+    <a href="/logout" class="btn">Logout</a>
+
+</div>
+</div>
+
+</body>
+</html>
